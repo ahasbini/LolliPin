@@ -2,10 +2,6 @@ package com.github.omadahealth.lollipin.lib.managers;
 
 import android.content.Context;
 
-import com.github.omadahealth.lollipin.lib.PinActivity;
-import com.github.omadahealth.lollipin.lib.PinCompatActivity;
-import com.github.omadahealth.lollipin.lib.PinFragmentActivity;
-
 /**
  * Allows to handle the {@link com.github.omadahealth.lollipin.lib.managers.AppLock} from within
  * the actual app calling the library.
@@ -50,8 +46,7 @@ public class LockManager<T extends AppLockActivity> {
      * Tells the app if the {@link com.github.omadahealth.lollipin.lib.managers.AppLock} is enabled or not
      */
     public boolean isAppLockEnabled() {
-        return (mAppLocker != null && (PinActivity.hasListeners() ||
-                PinFragmentActivity.hasListeners() || PinCompatActivity.hasListeners()));
+        return (mAppLocker != null && mAppLocker.isEnabled());
     }
 
     /**

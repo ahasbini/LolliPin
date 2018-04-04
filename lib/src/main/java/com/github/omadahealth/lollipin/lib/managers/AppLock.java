@@ -138,6 +138,12 @@ public abstract class AppLock {
     public abstract void disable();
 
     /**
+     * Checks whether this {@link AppLock} is enabled or not.
+     * @return returns <code>true</code> if is enabled, otherwise <code>false</code>
+     */
+    public abstract boolean isEnabled();
+
+    /**
      * Disable the {@link com.github.omadahealth.lollipin.lib.managers.AppLock} by removing any
      * {@link com.github.omadahealth.lollipin.lib.interfaces.LifeCycleInterface} and also delete
      * all the previous saved configurations into {@link android.content.SharedPreferences}

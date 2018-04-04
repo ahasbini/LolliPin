@@ -223,6 +223,13 @@ public class AppLockImpl<T extends AppLockActivity> extends AppLock implements L
     }
 
     @Override
+    public boolean isEnabled() {
+        return LockManager.getInstance().getAppLock() == this &&
+                (PinActivity.hasListeners() ||
+                        PinFragmentActivity.hasListeners() || PinCompatActivity.hasListeners());
+    }
+
+    @Override
     public void disableAndRemoveConfiguration() {
         PinActivity.clearListeners();
         PinCompatActivity.clearListeners();
